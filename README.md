@@ -1,6 +1,6 @@
 # Phone vs Cloud: LLM Inference on a Budget Phone
 
-Run a large language model entirely on an Android phone, benchmark it like an inference engineer, and race it against free cloud models. No laptop, no GPU, no money.
+Run a large language model entirely on an Android phone and race it against free cloud models. 
 
 Then add your phone's results to the [community table](RESULTS.md) so we can see how different phones compare.
 
