@@ -113,7 +113,7 @@ When you're done: `pkill llama-server` and `termux-wake-unlock`.
 
 ### 7. Make charts (optional)
 
-`visualize_results.ipynb` turns your results into charts. Open it in [Google Colab](https://colab.research.google.com) (works from a phone browser) or Jupyter, upload your results files, and run all cells.
+`visualizations4inference.ipynb` turns your results into charts. Open it in [Google Colab](https://colab.research.google.com) (works from a phone browser) or Jupyter, upload your results files, and run all cells (uploading your results' csv files for figures 1-4 and changing values in figures 5-6 based on your experiments).
 
 ## Contributing your results
 
