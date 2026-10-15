@@ -1,6 +1,6 @@
 # Phone vs Cloud: Learning Report
 
-My notes from running a large language model (LLM) on my Samsung phone, benchmarking it, and racing it against free cloud models. This file is for learning and reference: what I built, what every command did, what I measured, what it means, and where to read more.
+Notes from running a large language model (LLM) on my Samsung phone, benchmarking it, and racing it against free cloud models. This file is for learning and reference: what I built, what every command did, what I measured, what it means, and where to read more.
 
 **Date:** 14 October 2026
 **Device:** Samsung Galaxy A14 5G (SM-A146P), MediaTek Dimensity 700: 2 fast Cortex-A76 cores at 2.2 GHz + 6 efficiency Cortex-A55 cores at 2.0 GHz, 4 GB RAM (about 3.5 GB visible to Android)
@@ -93,7 +93,7 @@ termux-setup-storage                # grant access to phone storage (creates ~/s
 
 ### 3.3 Download models
 
-Models come from Hugging Face as **GGUF** files. The download link must contain `/resolve/` (the raw file), not `/blob/` (the web page about the file).
+Models come from Hugging Face as **GGUF** files. The download link must contain `/resolve/` (the raw file).
 
 ```bash
 # 8-bit version, official Qwen repo (~604 MiB)
@@ -105,7 +105,7 @@ wget https://huggingface.co/unsloth/Qwen3-0.6B-GGUF/resolve/main/Qwen3-0.6B-Q4_K
 ls -lh    # check sizes: hundreds of MB, not KB
 ```
 
-**Why Qwen3-0.6B:** it's small enough to run on almost any phone, free, and not gated (no Hugging Face login needed to download).
+**Why Qwen3-0.6B:** it's small enough to run on almost any phone, free and not gated (no Hugging Face login needed to download).
 
 ### 3.4 Keep Android from killing Termux
 
@@ -188,9 +188,6 @@ Qwen3 is a **thinking model**: it writes reasoning before its answer. `llama-ser
 
 Fix: count `content`, `reasoning`, *and* `reasoning_content` as generated tokens. Lesson: **validate a measurement tool before trusting its numbers.** A result that looks too good (or too bad) is a signal to check the tool.
 
-### 4.5 Saving replies (added after the benchmarks)
-
-The script now also saves every reply to `responses.md`, with the model's thinking and its answer kept separate, so answer quality can be compared later. Each run adds a new section instead of overwriting. Optional settings go in front of the command:
 
 | Setting | Effect |
 |---|---|
@@ -214,7 +211,7 @@ Prompts were short (about 10 to 15 words, plus chat-template tokens). `max_token
 | Cloud: liquid/lfm-2.5-2.6b:free | 0.56 s · 244.8 | 0.44 s · 201.5 | 1.12 s · 220.6 | **0.56 s** | **220.6** |
 | Cloud: nvidia/nemotron-3.5-lightning:free | 0.55 s · 93.3 | 0.53 s · 58.8 | 0.97 s · 90.3 | **0.55 s** | **90.3** |
 
-(Cloud measured from Dubai, UAE, over home internet. Cloud TTFT includes the network round trip.)
+(Cloud measured from  UAE over home internet. Cloud TTFT includes the network round trip.)
 
 **Interpretation**
 - The phone's 0.56 s TTFT ties the fastest cloud models. It pays no network round trip and waits in no queue; for a short prompt, its slow prefill barely matters.
@@ -418,7 +415,7 @@ Ideas from Chen et al. (2026) to add:
 
 ## 11. Further reading
 
-All are human-written sources (documentation, articles, specs).
+Documentation, articles and specs for further reading.
 
 **Research papers**
 - [Chen et al. (2026), On-device large language models: a survey of model compression and system optimization](https://link.springer.com/article/10.1007/s10462-026-11538-1), *Artificial Intelligence Review* 59, 191
